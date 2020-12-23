@@ -2,7 +2,7 @@
 
 /**
  * frees - free stacks
- * @stack head of stack
+ * @stack: head of stack
  */
 void frees(stack_t **stack)
 {
