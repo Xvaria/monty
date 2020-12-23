@@ -21,12 +21,6 @@ void (*funcs(line_t line, prop_t *p))(stack_t **, unsigned int)
 		if (strcmp(op[i].opcode, line.con[0]) == 0)
 		{
 			push_c(line, p, op[i].opcode);
-			if (arg.flag == 1 && strcmp(op[i].opcode, "push") == 0)
-			{
-				if (line.con)
-					free(line.con);
-				return (push);
-			}
 			free(line.con);
 			return (op[i].f);
 		}
@@ -35,7 +29,7 @@ void (*funcs(line_t line, prop_t *p))(stack_t **, unsigned int)
 	fprintf(stderr, "L%d: unknown instruction %s\n", line.num, line.con[0]);
 	free(line.con);
 	free(p->buf);
-	free(&(p->stack));
+	frees(&(p->stack));
 	fclose(p->file);
 	free(p);
 	exit(EXIT_FAILURE);
@@ -54,7 +48,7 @@ void push_c(line_t line, prop_t *p, char *opcode)
 		free(line.con);
 		fprintf(stderr, "L%d: usage: push integer\n", line.num);
 		free(p->buf);
-		free(&(p->stack));
+		frees(&(p->stack));
 		fclose(p->file);
 		free(p);
 		exit(EXIT_FAILURE);
@@ -120,7 +114,7 @@ void analyze_file(FILE *file)
 	}
 
 	free(p->buf);
-	free(&(p->stack));
+	frees(&(p->stack));
 	fclose(p->file);
 	free(p);
 }
