@@ -87,5 +87,6 @@ void frees(stack_t **stack);
 bool comment_c(line_t line);
 void npush(stack_t **stack, unsigned int nl);
 void nop(stack_t **stack, unsigned int nl);
+void pint(stack_t **stack, unsigned int nl);
 
 #endif
