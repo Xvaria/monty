@@ -99,7 +99,7 @@ void npush(stack_t **stack, unsigned int nl)
 /**
  * pint - prints the value at the top of the stack, followed by a new line
  * @stack: head of stack
- * @nline: number
+ * @nl: number
  */
 void pint(stack_t **stack, unsigned int nl)
 {
