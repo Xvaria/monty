@@ -12,6 +12,7 @@ void (*funcs(line_t line, prop_t *p))(stack_t **, unsigned int)
 	instruction_t op[] = {
 		{"push", push},
 		{"pall", pall},
+		{"pint", pint},
 		{"nop", nop},
 		{NULL, NULL}
 	};
