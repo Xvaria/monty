@@ -20,6 +20,7 @@ typedef struct arg_s
 } arg_t;
 
 extern arg_t arg;
+arg_t arg;
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
