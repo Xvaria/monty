@@ -82,5 +82,6 @@ void push_c(line_t line, prop_t *p, char *opcode);
 void (*funcs(line_t line, prop_t *p))(stack_t **, unsigned int);
 void pall(stack_t **stack, unsigned int nl);
 void push(stack_t **stack, unsigned int nl);
+void frees(stack_t **stack);
 
 #endif
