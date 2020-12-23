@@ -26,9 +26,9 @@ void frees(stack_t **stack)
  */
 bool comment_c(line_t line)
 {
-	if (!line.content[0] || line.content[0][0] == '#')
+	if (!line.con[0] || line.con[0][0] == '#')
 	{
-		free(line.content);
+		free(line.con);
 		return (true);
 	}
 	return (false);
