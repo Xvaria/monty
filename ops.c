@@ -94,3 +94,29 @@ void npush(stack_t **stack, unsigned int nl)
 	new->next = NULL;
 	new->n = arg.arg;
 }
+
+
+/**
+ * pint - prints the value at the top of the stack, followed by a new line
+ * @stack: head of stack
+ * @nline: number
+ */
+void pint(stack_t **stack, unsigned int nl)
+{
+	stack_t *pt;
+
+	if (stack == NULL || *stack == NULL)
+	{
+		fprintf(stderr, "L%d: can't pint, stack empty\n", nl);
+		exit(EXIT_FAILURE);
+	}
+	pt = *stack;
+	while (pt)
+	{
+		if (pt->prev == NULL)
+			break;
+		pt = pt->prev;
+	}
+
+	printf("%d\n", pt->n);
+}
