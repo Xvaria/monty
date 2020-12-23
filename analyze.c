@@ -15,7 +15,7 @@ void (*funcs(line_t line, prop_t *p))(stack_t **, unsigned int)
 		{NULL, NULL}
 	};
 	if (comment_c(line))
-		return(NULL);
+		return (NULL);
 	while (op[i].opcode)
 	{
 		if (strcmp(op[i].opcode, line.con[0]) == 0)
