@@ -12,15 +12,22 @@ void (*funcs(line_t line, prop_t *p))(stack_t **, unsigned int)
 	instruction_t op[] = {
 		{"push", push},
 		{"pall", pall},
+		{"nop", nop},
 		{NULL, NULL}
 	};
 	if (comment_c(line))
-		return (NULL);
+		return (nop);
 	while (op[i].opcode)
 	{
 		if (strcmp(op[i].opcode, line.con[0]) == 0)
 		{
 			push_c(line, p, op[i].opcode);
+			if (arg.flag == 1 && strcmp(op[i].opcode, "push") == 0)
+			{
+				if (line.con)
+					free(line.con);
+				return (npush);
+			}
 			free(line.con);
 			return (op[i].f);
 		}
