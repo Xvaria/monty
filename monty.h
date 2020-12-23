@@ -8,6 +8,11 @@
 #include <stdbool.h>
 #include <ctype.h>
 
+/**
+ * struct arg_s - struct for arguments
+ * @arg: argument
+ * @flag: flag
+ */
 typedef struct arg_s
 {
 	int arg;
@@ -27,9 +32,9 @@ extern arg_t arg;
  */
 typedef struct stack_s
 {
-        int n;
-        struct stack_s *prev;
-        struct stack_s *next;
+	int n;
+	struct stack_s *prev;
+	struct stack_s *next;
 } stack_t;
 
 /**
@@ -42,32 +47,33 @@ typedef struct stack_s
  */
 typedef struct instruction_s
 {
-        char *opcode;
-        void (*f)(stack_t **stack, unsigned int line_number);
+	char *opcode;
+	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
 /**
- *
- *
- *
+ * struct prop_s - structure for the file
+ * @buf: buffer
+ * @stack: data struct
+ * @file: File
  */
 typedef struct prop_s
 {
 	char *buf;
 	stack_t *stack;
 	FILE *file;
-}prop_t;
+} prop_t;
 
 /**
- *
- *
- *
+ * struct line_s - line content and number
+ * @num: line
+ * @con: content
  */
 typedef struct line_s
 {
 	unsigned int num;
 	char **con;
-}line_t;
+} line_t;
 
 void analyze_file(FILE *file);
 void analyze_line(line_t *line, char *buffer);
