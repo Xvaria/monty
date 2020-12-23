@@ -1,7 +1,5 @@
 #include "monty.h"
 
-arg_t arg = {0, 0};
-
 /**
  * funcs - search function
  * @line: struct line_t
